@@ -42,11 +42,10 @@ fi
 dpkg -x $CMAKE_TARBALL "${BUILDPACKS_DIR}/vendor"
 
 
-if [[ -f configure ]] ; then
+if [[ -f CMakeLists.txt ]] ; then
   echo "-----> configuring ..."
   mkdir build
-  cd build
-  cmake .. | indent
+  (cd build && cmake .. | indent)
 fi
 
 
