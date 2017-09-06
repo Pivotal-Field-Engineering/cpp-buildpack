@@ -1,0 +1,10 @@
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/CMakeFiles/rebuild_cache.dir
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/CMakeFiles/edit_cache.dir
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/src/CMakeFiles/rebuild_cache.dir
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/src/CMakeFiles/edit_cache.dir
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/src/binimporter/CMakeFiles/rebuild_cache.dir
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/src/binimporter/CMakeFiles/edit_cache.dir
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/src/binimporter/CMakeFiles/binimporter.dir
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/src/querytester/CMakeFiles/rebuild_cache.dir
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/src/querytester/CMakeFiles/edit_cache.dir
+/Users/kdunn/repos/cpp-buildpack/test/fixtures/cpp-root/build/src/querytester/CMakeFiles/querytester.dir

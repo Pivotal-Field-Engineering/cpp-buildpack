@@ -20,24 +20,33 @@ error() {
 cd $BUILD_DIR
 
 
-if [[ ! -f cppcms.js ]] ; then
-  error "could not find `cppcms.js`, which is required for this buildpack."
+if [[ ! -f cpp.js ]] ; then
+  error "could not find `cpp.js`, which is required for this buildpack."
 fi
 
 
-CPPCMS_VERSION=1.0.5
-TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/cppcms-${CPPCMS_VERSION}-linux-x64.tgz"
-if [[ ! -f $TARBALL ]] ; then
+BOOST_VERSION=1.64.0
+BOOST_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/boost-all_${ARTIFACT_VERSION}_amd64.deb" 
+if [[ ! -f $BOOST_TARBALL ]] ; then
   ls ${BUILDPACKS_DIR}/vendor/${CF_STACK}
-  error "could not find a cppcms libary for the '${CF_STACK}' stack."
+  error "could not find a Boost libary for the '${CF_STACK}' stack."
 fi
-mkdir -p cppcms
-tar -m --directory cppcms -zxf $TARBALL
+dpkg -i $BOOST_TARBALL
+
+CMAKE_VERSION=3.9.1
+CMAKE_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/cmake-all_${ARTIFACT_VERSION}_amd64.deb" 
+if [[ ! -f $CMAKE_TARBALL ]] ; then
+  ls ${BUILDPACKS_DIR}/vendor/${CF_STACK}
+  error "could not find a CMake libary for the '${CF_STACK}' stack."
+fi
+dpkg -i $CMAKE_TARBALL
 
 
 if [[ -f configure ]] ; then
   echo "-----> configuring ..."
-  ./configure | indent
+  mkdir build
+  cd build
+  cmake .. | indent
 fi
 
 
@@ -47,4 +56,4 @@ make | indent
 
 echo "-----> setting up .profile.d ..."
 mkdir -p ${BUILD_DIR}/.profile.d
-cp ${BUILDPACKS_DIR}/bin/cppcms.sh ${BUILD_DIR}/.profile.d
+cp ${BUILDPACKS_DIR}/bin/cpp.sh ${BUILD_DIR}/.profile.d
