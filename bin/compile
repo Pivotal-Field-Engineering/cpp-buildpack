@@ -31,7 +31,7 @@ if [[ ! -f $BOOST_TARBALL ]] ; then
   ls ${BUILDPACKS_DIR}/vendor/${CF_STACK}
   error "could not find a Boost libary for the '${CF_STACK}' stack."
 fi
-sudo dpkg -i $BOOST_TARBALL
+dpkg -i $BOOST_TARBALL --force-not-root --root="${BUILDPACKS_DIR}/vendor"
 
 CMAKE_VERSION=3.9.1
 CMAKE_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/cmake-all_${CMAKE_VERSION}_amd64.deb" 
@@ -39,7 +39,7 @@ if [[ ! -f $CMAKE_TARBALL ]] ; then
   ls ${BUILDPACKS_DIR}/vendor/${CF_STACK}
   error "could not find a CMake libary for the '${CF_STACK}' stack."
 fi
-sudo dpkg -i $CMAKE_TARBALL
+dpkg -i $CMAKE_TARBALL --force-not-root --root="${BUILDPACKS_DIR}/vendor"
 
 
 if [[ -f configure ]] ; then
