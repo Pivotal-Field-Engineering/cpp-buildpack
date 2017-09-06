@@ -21,12 +21,12 @@ cd $BUILD_DIR
 
 
 if [[ ! -f cpp.js ]] ; then
-  error "could not find `cpp.js`, which is required for this buildpack."
+  error "could not find cpp.js, which is required for this buildpack."
 fi
 
 
 BOOST_VERSION=1.64.0
-BOOST_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/boost-all_${ARTIFACT_VERSION}_amd64.deb" 
+BOOST_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/boost-all_${BOOST_VERSION}_amd64.deb" 
 if [[ ! -f $BOOST_TARBALL ]] ; then
   ls ${BUILDPACKS_DIR}/vendor/${CF_STACK}
   error "could not find a Boost libary for the '${CF_STACK}' stack."
@@ -34,7 +34,7 @@ fi
 dpkg -i $BOOST_TARBALL
 
 CMAKE_VERSION=3.9.1
-CMAKE_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/cmake-all_${ARTIFACT_VERSION}_amd64.deb" 
+CMAKE_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/cmake-all_${CMAKE_VERSION}_amd64.deb" 
 if [[ ! -f $CMAKE_TARBALL ]] ; then
   ls ${BUILDPACKS_DIR}/vendor/${CF_STACK}
   error "could not find a CMake libary for the '${CF_STACK}' stack."
