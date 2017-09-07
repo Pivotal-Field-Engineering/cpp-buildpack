@@ -45,7 +45,7 @@ dpkg -x $CMAKE_TARBALL "${BUILDPACKS_DIR}/vendor"
 if [[ -f CMakeLists.txt ]] ; then
   echo "-----> configuring ..."
   mkdir -p build
-  (cd build && ${BUILDPACKS_DIR}/bin/cmake .. | indent)
+  (cd build && env CMAKE_ROOT=${BUILDPACKS_DIR} ${BUILDPACKS_DIR}/bin/cmake .. | indent)
 fi
 
 
