@@ -26,7 +26,7 @@ fi
 
 
 BOOST_VERSION=1.64.0
-BOOST_TARBALL="external/boost-all_${BOOST_VERSION}_amd64.deb" 
+BOOST_TARBALL="external/boost-all-dev_${BOOST_VERSION}_amd64.deb" 
 if [[ ! -f $BOOST_TARBALL ]] ; then
   ls external
   error "could not find a Boost libary for the '${CF_STACK}' stack."
