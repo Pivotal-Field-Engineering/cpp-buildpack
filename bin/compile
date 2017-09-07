@@ -52,9 +52,9 @@ fi
 
 
 echo "-----> compiling with make ..."
-make | indent
+(cd build && make | indent)
 
 
 echo "-----> setting up .profile.d ..."
-mkdir -p ${BUILD_DIR}/.profile.d
-cp ${BUILDPACKS_DIR}/bin/cpp.sh ${BUILD_DIR}/.profile.d
+#mkdir -p ${BUILD_DIR}/.profile.d
+#cp ${BUILDPACKS_DIR}/bin/cpp.sh ${BUILD_DIR}/.profile.d
