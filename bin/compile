@@ -26,20 +26,20 @@ fi
 
 
 BOOST_VERSION=1.64.0
-BOOST_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/boost-all_${BOOST_VERSION}_amd64.deb" 
+BOOST_TARBALL="${BUILDPACKS_DIR}/external/boost-all_${BOOST_VERSION}_amd64.deb" 
 if [[ ! -f $BOOST_TARBALL ]] ; then
-  ls ${BUILDPACKS_DIR}/vendor/${CF_STACK}
+  ls ${BUILDPACKS_DIR}/external
   error "could not find a Boost libary for the '${CF_STACK}' stack."
 fi
-dpkg -x $BOOST_TARBALL "${BUILDPACKS_DIR}/vendor"
+dpkg --extract $BOOST_TARBALL "${BUILDPACKS_DIR}"
 
-CMAKE_VERSION=3.9.1
-CMAKE_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/cmake-all_${CMAKE_VERSION}_amd64.deb" 
-if [[ ! -f $CMAKE_TARBALL ]] ; then
-  ls ${BUILDPACKS_DIR}/vendor/${CF_STACK}
-  error "could not find a CMake libary for the '${CF_STACK}' stack."
-fi
-dpkg -x $CMAKE_TARBALL "${BUILDPACKS_DIR}/vendor"
+#CMAKE_VERSION=3.9.1
+#CMAKE_TARBALL="${BUILDPACKS_DIR}/vendor/${CF_STACK}/cmake-all_${CMAKE_VERSION}_amd64.deb" 
+#if [[ ! -f $CMAKE_TARBALL ]] ; then
+#  ls ${BUILDPACKS_DIR}/vendor/${CF_STACK}
+#  error "could not find a CMake libary for the '${CF_STACK}' stack."
+#fi
+#dpkg -x $CMAKE_TARBALL "${BUILDPACKS_DIR}/vendor"
 
 
 if [[ -f CMakeLists.txt ]] ; then
