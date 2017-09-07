@@ -26,9 +26,11 @@ fi
 
 
 BOOST_VERSION=1.64.0
-BOOST_TARBALL="external/boost-all-dev_${BOOST_VERSION}_amd64.deb" 
+BOOST_TARBALL="external/boost-all-dev_${BOOST_VERSION}.deb" 
 if [[ ! -f $BOOST_TARBALL ]] ; then
   ls external
+  echo `pwd`
+  echo "${BUILDPACKS_DIR}"
   error "could not find a Boost libary for the '${CF_STACK}' stack."
 fi
 dpkg --extract $BOOST_TARBALL "${BUILDPACKS_DIR}"
